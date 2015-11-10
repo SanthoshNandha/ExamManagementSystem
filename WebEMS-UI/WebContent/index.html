@@ -1,0 +1,26 @@
+<!doctype html>
+<html data-ng-app>
+<head>  
+  <title>Example - example-guide-concepts-1-production</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="angularjs/controller/hello.js"></script> 
+</head>
+<body >  
+<div data-ng-init="qty=1;cost=2">
+  <b>Invoice:</b>
+  <div>
+    Quantity: <input type="number" min="0" data-ng-model="qty">
+  </div>
+  <div>
+    Costs: <input type="number" min="0" data-ng-model="cost">
+  </div>
+  <div>
+    <b>Total:</b> {{qty * cost | currency}}
+  </div>
+</div>
+<div data-ng-controller="Hello">
+	<p>The ID is {{greeting.id}}</p>
+	<p>The content is {{greeting.content}}</p>
+</div>
+</body>
+</html>
