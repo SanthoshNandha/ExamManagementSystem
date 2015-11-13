@@ -3,20 +3,25 @@ package operations;
 import database.query.ExamQuery;
 import entity.ExamType;
 import entity.Examination;
+import entity.Result;
 
 public class ExamOperations {
  
 	ExamQuery examQuery=new ExamQuery();
-	 
+	Result result=new Result();
 	
-	public void examInsert(Examination exam){
+	public Result examInsert(Examination exam){
 		  IdCountOperations idCountOperations=new IdCountOperations();
 		  exam.setExamId("EXM"+idCountOperations.getExamIdCount());
-		 examQuery.examInsert(exam);
+		   examQuery.examInsert(exam);
+		   result.setStatus("Success");
+			return result;
 		}
 	
-	public void examTypeInsert(ExamType examType){
+	public Result examTypeInsert(ExamType examType){
 		 examQuery.examTypeInsert(examType);
+		 result.setStatus("Success");
+		 return result;
 		}
 	
 }

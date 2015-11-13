@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Date;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "User")
@@ -10,7 +12,7 @@ public class User {
 	private String lastName;
 	private String middleName;
 	private String sex;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private String addressLineOne;
 	private String addressLineTwo;
 	private String city;
@@ -52,10 +54,10 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getAddressLineOne() {

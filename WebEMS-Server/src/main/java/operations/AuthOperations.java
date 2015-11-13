@@ -2,22 +2,28 @@ package operations;
 
 import database.query.AuthQuery;
 import entity.Authentication;
+import entity.Result;
 
 public class AuthOperations {
 	AuthQuery authQuery=new AuthQuery();
+	Result result=new Result();
 	
-	public void authInsert(Authentication authentication){
+	public Result authInsert(Authentication authentication){
 		authQuery.authInsert(authentication);
+		result.setStatus("Success");
+		return result;
 	}
 	
-	public String authValidate(Authentication authentication){
-		//String status="FAILURE";
+	public Result authValidate(Authentication authentication){
+		
 		Authentication retrievedAuth=authQuery.authRetrieve(authentication);
 		if(retrievedAuth!= null){
-			return retrievedAuth.getUserId();
+			result.setAuthUserId(retrievedAuth.getUserId());
+			result.setAuthUserType(retrievedAuth.getUserType());
 			}
-		
-		return "Error:Invalid Username/Password";
+		  
+		return result;
+				
 		
 	}
 	

@@ -1,6 +1,7 @@
 package hello;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -78,7 +79,7 @@ public class HelloWorldConfiguration {
 		user.setCountry("USA");
 		String[] courseList={"CS001","CS701","CS703"};
 		user.setCourses(courseList);
-		user.setDateOfBirth("14/12/1990");
+		user.setDateOfBirth(new Date());
 		user.setEmailID("anish@gmail.com");
 		user.setFirstName("Santhosh");
 		user.setLastName("N");

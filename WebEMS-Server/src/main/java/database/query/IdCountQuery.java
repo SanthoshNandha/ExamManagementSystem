@@ -23,17 +23,13 @@ public class IdCountQuery {
     }
     
     public ArrayList<IdCount> IdCountReterive(IdCount idCount){
-    	//Query findAuth = new Query();
-		
+    	
     	ArrayList<IdCount> idCountList = (ArrayList<IdCount>) mongoOps.findAll(IdCount.class);
 		return idCountList;
     	
     }
     public void IdCountDrop(IdCount idCount){
-    	//Query findAuth = new Query();
-		
-//    	ArrayList<IdCount> idCountList = (ArrayList<IdCount>) mongoOps.findAll(IdCount.class);
-//		return idCountList;
+   
     	mongoOps.dropCollection(IdCount.class);
     	
     }

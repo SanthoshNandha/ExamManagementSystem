@@ -8,9 +8,16 @@ public class Authentication {
 	private String userId;
 	private String userName;
 	private String password;
-	private String isLoggedIn;
-	private String errorMsg;
+	private String userType;
+	//private String isLoggedIn;
+	//private String errorMsg;
 	
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -29,18 +36,7 @@ public class Authentication {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getIsLoggedIn() {
-		return isLoggedIn;
-	}
-	public void setIsLoggedIn(String isLoggedIn) {
-		this.isLoggedIn = isLoggedIn;
-	}
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
+	
 	
 	
 }
