@@ -3,6 +3,7 @@ package database.query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
@@ -17,12 +18,14 @@ public class AuthQuery {
     MongoOperations mongoOps = 
             (MongoOperations) ctx.getBean("mongoTemplate");
 
-	/*public AuthQuery() {
-		super();
-	}*/
+	
 
 	public void authInsert(Authentication authentication){
 		mongoOps.insert(authentication);
+		//Aggregation agg=new Aggregation(match(Criteria.where("user_id").gte(o)));
+		Query findUserId=new Query();
+		//
+		//findUserId
 	}
 	
 	public Authentication authRetrieve(Authentication authentication){
@@ -32,4 +35,5 @@ public class AuthQuery {
 		Authentication auth = mongoOps.findOne(findAuth, Authentication.class, "Authentication");
 		return auth;
 	}
+	
 }

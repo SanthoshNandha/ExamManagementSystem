@@ -1,5 +1,8 @@
 package entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "QuestionType")
 public class QuestionType {
 	
 	private String questionTypeId;

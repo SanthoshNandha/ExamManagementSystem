@@ -1,5 +1,8 @@
 package entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Course")
 public class Course {
 	
 	private String courseId;
