@@ -1,0 +1,17 @@
+entity\Course.class
+database\config\SpringMongoConfig.class
+entity\Test.class
+entity\UserType.class
+entity\Question.class
+database\query\AuthenticationQuery.class
+service\ApplicationServiceConfiguration.class
+entity\Authentication.class
+entity\Examination.class
+entity\User.class
+service\AuthenticationController.class
+entity\Sem.class
+entity\StudentAnswer.class
+entity\QuestionType.class
+database\operations\AuthenticationOperation.class
+application\Authenticate.class
+entity\ExamType.class
