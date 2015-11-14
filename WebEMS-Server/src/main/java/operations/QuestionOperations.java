@@ -1,5 +1,7 @@
 package operations;
 
+import java.util.ArrayList;
+
 import database.query.QuestionQuery;
 import entity.Question;
 import entity.QuestionType;
@@ -22,5 +24,9 @@ public class QuestionOperations {
 		questionQuery.questionTypeInsert(questionType);
 		result.setStatus("Success");
 		return result;
+	}
+	
+	public ArrayList<Question> retrieveQuestions(){
+		return questionQuery.retrieveQuestions();
 	}
 }

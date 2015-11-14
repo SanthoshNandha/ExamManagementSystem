@@ -14,7 +14,7 @@ public class IdCountOperations {
 		ArrayList<IdCount> idCountList=idCountQuery.IdCountReterive(idCount);
 		idCountQuery.IdCountDrop(idCount);
 		Iterator<IdCount> it=idCountList.iterator();
-		int maxIdCount=0;
+		int maxIdCount=-1;
 		while(it.hasNext()){
 			IdCount IdCountIt=it.next();
 			if (maxIdCount<IdCountIt.getUserIdCount()){
@@ -35,7 +35,7 @@ public class IdCountOperations {
 		ArrayList<IdCount> idCountList=idCountQuery.IdCountReterive(idCount);
 		idCountQuery.IdCountDrop(idCount);
 		Iterator<IdCount> it=idCountList.iterator();
-		int maxIdCount=0;
+		int maxIdCount=-1;
 		while(it.hasNext()){
 			IdCount IdCountIt=it.next();
 			if (maxIdCount<IdCountIt.getCourseIdCount()){
@@ -56,7 +56,7 @@ public class IdCountOperations {
 		ArrayList<IdCount> idCountList=idCountQuery.IdCountReterive(idCount);
 		idCountQuery.IdCountDrop(idCount);
 		Iterator<IdCount> it=idCountList.iterator();
-		int maxIdCount=0;
+		int maxIdCount=-1;
 		while(it.hasNext()){
 			IdCount IdCountIt=it.next();
 			if (maxIdCount<IdCountIt.getExamIdCount()){
@@ -77,7 +77,7 @@ public class IdCountOperations {
 		ArrayList<IdCount> idCountList=idCountQuery.IdCountReterive(idCount);
 		idCountQuery.IdCountDrop(idCount);
 		Iterator<IdCount> it=idCountList.iterator();
-		int maxIdCount=0;
+		int maxIdCount=-1;
 		while(it.hasNext()){
 			IdCount IdCountIt=it.next();
 			if (maxIdCount<IdCountIt.getQuestionIdCount()){
@@ -98,7 +98,7 @@ public class IdCountOperations {
 		ArrayList<IdCount> idCountList=idCountQuery.IdCountReterive(idCount);
 		idCountQuery.IdCountDrop(idCount);
 		Iterator<IdCount> it=idCountList.iterator();
-		int maxIdCount=0;
+		int maxIdCount=-1;
 		while(it.hasNext()){
 			IdCount IdCountIt=it.next();
 			if (maxIdCount<IdCountIt.getTestIdCount()){

@@ -14,8 +14,8 @@ public class Question {
 	private String choice4;
 	private String choice5;
 	private String answer;
-	private String point;
-	private String questionduration;
+	private float point;
+	//private String questionduration;
 	private String difficultylevelid;
 	private String courseid;
 	public String getQuestionId() {
@@ -72,18 +72,13 @@ public class Question {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public String getPoint() {
+	public Float getPoint() {
 		return point;
 	}
-	public void setPoint(String point) {
+	public void setPoint(Float point) {
 		this.point = point;
 	}
-	public String getQuestionduration() {
-		return questionduration;
-	}
-	public void setQuestionduration(String questionduration) {
-		this.questionduration = questionduration;
-	}
+	
 	public String getDifficultylevelid() {
 		return difficultylevelid;
 	}

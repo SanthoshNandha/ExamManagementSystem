@@ -1,5 +1,7 @@
 package operations;
 
+import java.util.ArrayList;
+
 import database.query.ExamQuery;
 import entity.ExamType;
 import entity.Examination;
@@ -23,5 +25,10 @@ public class ExamOperations {
 		 result.setStatus("Success");
 		 return result;
 		}
+	
+	public ArrayList<ExamType> retrieveExamTypes(){
+		return examQuery.retrieveExamTypes();
+		
+	}
 	
 }
