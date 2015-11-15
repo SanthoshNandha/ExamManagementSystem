@@ -1,11 +1,16 @@
 package operations;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
 import database.query.ExamQuery;
 import entity.ExamType;
 import entity.Examination;
 import entity.Result;
+import entity.User;
 
 public class ExamOperations {
  
@@ -29,6 +34,30 @@ public class ExamOperations {
 	public ArrayList<ExamType> retrieveExamTypes(){
 		return examQuery.retrieveExamTypes();
 		
+	}
+	
+	public Examination retrieveExamforExamId(String examId){
+		return examQuery.retrieveExamforExamId(examId);
+		
+	}
+	
+	public void retrieveValidExamForUser(String userId){
+		UserOperations userOperation=new UserOperations();
+		CourseOperations courseOperations= new CourseOperations();
+		String[] validCourse=userOperation.getValidCouseId(userId);
+		ArrayList<String> examids=new ArrayList<String>();
+		//examids.add("");
+		for (String courseId: validCourse) {  
+			ArrayList<String> tempExamids=courseOperations.retrieveValidExamId(courseId);
+			if(tempExamids!=null)
+			examids.addAll(tempExamids);
+		}
+		Iterator it=examids.iterator();
+		ArrayList<Examination> validExams=new ArrayList<Examination>();
+		while(it.hasNext())
+			validExams.add(retrieveExamforExamId((String)it.next()));
+		System.out.println(validExams);
+		//return examQuery.retrieveValidExamForUser(userId); 
 	}
 	
 }

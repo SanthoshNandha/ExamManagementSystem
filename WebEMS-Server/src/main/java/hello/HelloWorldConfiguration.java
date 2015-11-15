@@ -68,21 +68,24 @@ public class HelloWorldConfiguration {
 		TestOperations testOperations=new TestOperations();
 		testOperations.testInsert(test);*/
 		//UserOperations
-		Authentication authentication=new Authentication();
+		
+		/*Authentication authentication=new Authentication();
 		authentication.setUserName("ANISH");
-		authentication.setPassword("Adsa");
+		authentication.setPassword("ANISH");
 		authentication.setUserId("USR0001");
-		User user=new User();
+		AuthOperations authOperations=new AuthOperations();
+		authOperations.authValidate(authentication);*/
+		/*User user=new User();
 		user.setAddressLineOne("1500 sparkman Dr");
 		user.setAddressLineTwo("Nw 30E");
 		user.setCity("Huntsville");
 		user.setCountry("USA");
-		String[] courseList={"CS001","CS701","CS703"};
+		String[] courseList={"COU00005","COU00006","COU00007"};
 		user.setCourses(courseList);
 		user.setDateOfBirth(new Date());
 		user.setEmailID("anish@gmail.com");
-		user.setFirstName("Santhosh");
-		user.setLastName("N");
+		user.setFirstName("Ashwini");
+		user.setLastName("Y s");
 		user.setMobileNumber("2564798222");
 		user.setSex("male");
 		user.setState("Alabama");
@@ -97,9 +100,51 @@ public class HelloWorldConfiguration {
 		TestOperations testOperations=new TestOperations();
 		testOperations.testInsert(test);
 		
-		/*AuthOperations authOperations=new AuthOperations();
-		IdCountOperations idCountOperations=new IdCountOperations();*/
+		AuthOperations authOperations=new AuthOperations();
+		IdCountOperations idCountOperations=new IdCountOperations();
 		//idCountOperations.getUserIdCount();
+		Course course= new Course();
+		//course.setCourseId();
+		course.setCourseName("SE3");
+		course.setCourseCode("CS501");
+		Sem sem=new Sem();
+		sem.setSemName("Spring");
+		sem.setYear(2000);
+		
+		course.setSem(sem);
+		ArrayList<String> examid=new ArrayList<String>();
+		examid.add("EXM00004");
+		examid.add("EXM00005");
+		examid.add("EXM00006");
+		course.setExamIds(examid);
+		CourseOperations courseOperations=new CourseOperations();
+		courseOperations.courseInsert(course);
+		
+		Examination examination= new Examination();
+		ExamOperations examOperations=new ExamOperations();
+		//examination.setexamId();
+		
+		//examtype.setdescription("Number of question will be fixed");	examination.setexam_Name("DBMS Final Exam");
+		//examination.setdesc();
+		//examination.setinstructions();
+		examination.setDuration("3 Hours");
+		examination.setMaxScore("100");
+		examination.setPassScore("65");
+		examination.setNumberofQuestions("12");
+		examination.setExamTypeID("ETY001");
+		examination.setExamName("mid term");
+		//examination.setdefaultAttempts();
+		//examination.setavialableFrom;
+		//examination.setavialableTo;
+		String[] questionsList={"QUE00001","QUE00002","QUE00003"};
+		examination.setQuestionIds(questionsList);
+
+		examOperations.examInsert(examination);*/
+		
+		
+		 ExamOperations examOperations=new ExamOperations();
+		examOperations.retrieveValidExamForUser("USR00017");
+
 		System.out.println("------------------_------------MSG____UserIdCOunter");
 		//System.out.println("idCountOperations.getUserIdCount()"+idCountOperations.getUserIdCount());
 		System.out.println("");

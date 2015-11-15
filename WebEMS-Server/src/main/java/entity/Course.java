@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.ArrayList;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Course")
@@ -9,7 +11,15 @@ public class Course {
 	private String courseName;
 	private String courseCode;
 	private Sem sem;
+	private ArrayList<String> examIds;
 	
+	
+	public ArrayList<String> getExamIds() {
+		return examIds;
+	}
+	public void setExamIds(ArrayList<String> examIds) {
+		this.examIds = examIds;
+	}
 	public String getCourseId() {
 		return courseId;
 	}

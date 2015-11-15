@@ -30,5 +30,9 @@ public class UserOperations {
     	
     }
     
+    public String[] getValidCouseId(String userId){
+    	return (userQuery.retreiveUserCourseId(userId)).getCourses();
+    }
+    
     
 }

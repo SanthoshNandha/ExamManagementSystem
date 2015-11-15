@@ -1,5 +1,7 @@
 package operations;
 
+import java.util.ArrayList;
+
 import database.query.CourseQuery;
 import entity.Course;
 import entity.Result;
@@ -15,5 +17,9 @@ public class CourseOperations {
 		result.setStatus("Success");
 		return result;
 	}
-
+	
+	
+	public ArrayList<String> retrieveValidExamId(String courseId){
+    	return (courseQuery.retreiveExamIdforCourse(courseId)).getExamIds();
+    }
 }

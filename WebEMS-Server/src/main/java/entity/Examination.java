@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Date;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Examination")
@@ -7,7 +9,7 @@ public class Examination {
 	
 	private String examId;
 	private String examTypeID;
-	private String exam_Name;
+	private String examName;
 	private String desc;
 	private String instructions;
 	private String duration;
@@ -15,8 +17,8 @@ public class Examination {
 	private String passScore;
 	private String numberofQuestions;
 	private String defaultAttempts;
-	private String avialableFrom;
-	private String avialableTo;
+	private Date avialableFrom;
+	private Date avialableTo;
 	private String[] questionIds;
 	
 	public String getExamId() {
@@ -31,11 +33,11 @@ public class Examination {
 	public void setExamTypeID(String examTypeID) {
 		this.examTypeID = examTypeID;
 	}
-	public String getExam_Name() {
-		return exam_Name;
+	public String getExamName() {
+		return examName;
 	}
-	public void setExam_Name(String exam_Name) {
-		this.exam_Name = exam_Name;
+	public void setExamName(String exam_Name) {
+		this.examName = exam_Name;
 	}
 	public String getDesc() {
 		return desc;
@@ -79,16 +81,16 @@ public class Examination {
 	public void setDefaultAttempts(String defaultAttempts) {
 		this.defaultAttempts = defaultAttempts;
 	}
-	public String getAvialableFrom() {
+	public Date getAvialableFrom() {
 		return avialableFrom;
 	}
-	public void setAvialableFrom(String avialableFrom) {
+	public void setAvialableFrom(Date avialableFrom) {
 		this.avialableFrom = avialableFrom;
 	}
-	public String getAvialableTo() {
+	public Date getAvialableTo() {
 		return avialableTo;
 	}
-	public void setAvialableTo(String avialableTo) {
+	public void setAvialableTo(Date avialableTo) {
 		this.avialableTo = avialableTo;
 	}
 	public String[] getQuestionIds() {
