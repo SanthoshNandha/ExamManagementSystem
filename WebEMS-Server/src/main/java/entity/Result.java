@@ -5,6 +5,15 @@ public class Result {
    private String authError="Error:Invalid Username/Password";
    private String authUserId;
    private String authUserType;
+   private String errorMsg;
+
+public String getErrorMsg() {
+	return errorMsg;
+}
+
+public void setErrorMsg(String errorMsg) {
+	this.errorMsg = errorMsg;
+}
 
 public String getAuthUserType() {
 	return authUserType;

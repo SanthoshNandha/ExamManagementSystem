@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Examination {
 	
 	private String examId;
+	private String courseId;
 	private String examTypeID;
 	private String examName;
 	private String desc;
@@ -15,12 +17,22 @@ public class Examination {
 	private String duration;
 	private String maxScore;
 	private String passScore;
-	private String numberofQuestions;
+	private int numberofQuestions;
 	private String defaultAttempts;
 	private Date avialableFrom;
 	private Date avialableTo;
-	private String[] questionIds;
+	private ArrayList<String> questionIds;
 	
+	public String getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+	
+	public void setQuestionIds(ArrayList<String> questionIds) {
+		this.questionIds = questionIds;
+	}
 	public String getExamId() {
 		return examId;
 	}
@@ -69,10 +81,10 @@ public class Examination {
 	public void setPassScore(String passScore) {
 		this.passScore = passScore;
 	}
-	public String getNumberofQuestions() {
+	public int getNumberofQuestions() {
 		return numberofQuestions;
 	}
-	public void setNumberofQuestions(String numberofQuestions) {
+	public void setNumberofQuestions(int numberofQuestions) {
 		this.numberofQuestions = numberofQuestions;
 	}
 	public String getDefaultAttempts() {
@@ -93,12 +105,10 @@ public class Examination {
 	public void setAvialableTo(Date avialableTo) {
 		this.avialableTo = avialableTo;
 	}
-	public String[] getQuestionIds() {
+	public ArrayList<String> getQuestionIds() {
 		return questionIds;
 	}
-	public void setQuestionIds(String[] questionIds) {
-		this.questionIds = questionIds;
-	}
+	
 	
 	
 

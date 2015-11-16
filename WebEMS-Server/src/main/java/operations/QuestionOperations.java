@@ -3,6 +3,7 @@ package operations;
 import java.util.ArrayList;
 
 import database.query.QuestionQuery;
+import entity.Examination;
 import entity.Question;
 import entity.QuestionType;
 import entity.Result;
@@ -29,4 +30,13 @@ public class QuestionOperations {
 	public ArrayList<Question> retrieveQuestions(){
 		return questionQuery.retrieveQuestions();
 	}
+	
+	public Question retreiveQuestionsforQuestionId(String queId){
+		return questionQuery.retreiveQuestionsforQuestionId(queId);
+	}
+	
+	public ArrayList<Question> retreiveAllQueForCourse(String courseId){
+		return questionQuery.retreiveAllQueForCourse(courseId);
+	}
+	
 }

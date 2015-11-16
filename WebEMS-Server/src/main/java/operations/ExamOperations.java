@@ -2,6 +2,7 @@ package operations;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -9,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import database.query.ExamQuery;
 import entity.ExamType;
 import entity.Examination;
+import entity.Question;
 import entity.Result;
 import entity.User;
 
@@ -41,7 +43,7 @@ public class ExamOperations {
 		
 	}
 	
-	public void retrieveValidExamForUser(String userId){
+	public ArrayList<Examination> retrieveValidExamForUser(String userId){
 		UserOperations userOperation=new UserOperations();
 		CourseOperations courseOperations= new CourseOperations();
 		String[] validCourse=userOperation.getValidCouseId(userId);
@@ -53,11 +55,41 @@ public class ExamOperations {
 			examids.addAll(tempExamids);
 		}
 		Iterator it=examids.iterator();
+		
 		ArrayList<Examination> validExams=new ArrayList<Examination>();
 		while(it.hasNext())
 			validExams.add(retrieveExamforExamId((String)it.next()));
-		System.out.println(validExams);
-		//return examQuery.retrieveValidExamForUser(userId); 
+		return validExams;
+		
+	}
+	
+     public ArrayList<Question> retreiveQuestionsforTest(Examination seletedExam){
+    	 ArrayList<Question> testQuestions=new ArrayList<Question>();
+    	 QuestionOperations questionOperations= new QuestionOperations();
+    	 if(seletedExam.getExamTypeID()!=null && seletedExam.getExamTypeID().equals("ETY001")){
+    		 if(seletedExam.getQuestionIds()!=null){
+    	      Iterator it=seletedExam.getQuestionIds().iterator();
+ 		       while(it.hasNext())
+ 			      testQuestions.add(questionOperations.retreiveQuestionsforQuestionId((String)it.next()));
+                 
+    		 }
+    		 else{
+    			 result.setErrorMsg("Invalid question");
+    		 }
+    	 }
+    	 else{
+    		 Random randomGenerator=new Random();
+    		 int questionCount=0;
+    		 int randomIndex=0;
+    		 ArrayList<Question> courseQuestions = questionOperations.retreiveAllQueForCourse(seletedExam.getCourseId());
+    		 while(seletedExam.getNumberofQuestions()>=questionCount){
+    			 randomIndex= randomGenerator.nextInt(courseQuestions.size());
+    			 testQuestions.add(courseQuestions.get(randomIndex));
+    			 questionCount++;
+    		 }
+    	 }
+    	 
+    	 return testQuestions;
 	}
 	
 }

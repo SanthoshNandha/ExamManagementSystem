@@ -17,7 +17,7 @@ public class Question {
 	private float point;
 	//private String questionduration;
 	private String difficultylevelid;
-	private String courseid;
+	private String courseId;
 	public String getQuestionId() {
 		return questionId;
 	}
@@ -85,11 +85,11 @@ public class Question {
 	public void setDifficultylevelid(String difficultylevelid) {
 		this.difficultylevelid = difficultylevelid;
 	}
-	public String getCourseid() {
-		return courseid;
+	public String getCourseId() {
+		return courseId;
 	}
-	public void setCourseid(String courseid) {
-		this.courseid = courseid;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 	
 	

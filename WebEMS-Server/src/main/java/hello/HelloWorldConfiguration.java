@@ -118,7 +118,7 @@ public class HelloWorldConfiguration {
 		examid.add("EXM00006");
 		course.setExamIds(examid);
 		CourseOperations courseOperations=new CourseOperations();
-		courseOperations.courseInsert(course);
+		courseOperations.courseInsert(course);*/
 		
 		Examination examination= new Examination();
 		ExamOperations examOperations=new ExamOperations();
@@ -127,25 +127,52 @@ public class HelloWorldConfiguration {
 		//examtype.setdescription("Number of question will be fixed");	examination.setexam_Name("DBMS Final Exam");
 		//examination.setdesc();
 		//examination.setinstructions();
+		examination.setExamId("EXM00009");
 		examination.setDuration("3 Hours");
 		examination.setMaxScore("100");
 		examination.setPassScore("65");
-		examination.setNumberofQuestions("12");
-		examination.setExamTypeID("ETY001");
+		examination.setNumberofQuestions(5);
+		examination.setExamTypeID("ETY002");
 		examination.setExamName("mid term");
 		//examination.setdefaultAttempts();
 		//examination.setavialableFrom;
 		//examination.setavialableTo;
-		String[] questionsList={"QUE00001","QUE00002","QUE00003"};
+		ArrayList<String> questionsList=new ArrayList<String>();
+		questionsList.add("QUE00001");
+		questionsList.add("QUE00002");
+		questionsList.add("QUE00003");
 		examination.setQuestionIds(questionsList);
+		examination.setCourseId("COU00008");
+		//examOperations.examInsert(examination);
+		ArrayList<Question> questions=examOperations.retreiveQuestionsforTest(examination);
+		
+		Question question= new Question();
+		//question.setQuestionId();
+		question.setQuestionTypeId("QTY003");
+		question.setQuestion("Wht ever is que 7 ");
+		question.setChoice1("Reflexsive Rule");
+		question.setChoice2("Augmentative Rule");
+		question.setChoice3("Transitive Rule");
+		question.setChoice4("Union Rule");
+		question.setChoice5("None of the above");
+		question.setAnswer("Transitive Rule");
+		question.setPoint(12.0f);
+		question.setDifficultylevelid("Medium");
+		question.setCourseId("COU00008");
+		
+		//question.setCourseid();
+		
+		QuestionOperations questionOperations=new QuestionOperations();
+		questionOperations.questionInsert(question);
 
-		examOperations.examInsert(examination);*/
 		
 		
-		 ExamOperations examOperations=new ExamOperations();
-		examOperations.retrieveValidExamForUser("USR00017");
+		
+		 //ExamOperations examOperations=new ExamOperations();
+		//examOperations.retrieveValidExamForUser("USR00017");
+		
 
-		System.out.println("------------------_------------MSG____UserIdCOunter");
+		System.out.println("------------------_------------questions"+question);
 		//System.out.println("idCountOperations.getUserIdCount()"+idCountOperations.getUserIdCount());
 		System.out.println("");
 		System.out.println("");
