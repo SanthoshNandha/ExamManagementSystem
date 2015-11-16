@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.ArrayList;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Test")
@@ -9,12 +11,29 @@ public class Test {
 	private String proctor_Id;
 	private String start_Time;
 	private String End_Time;
-	private String totalTime;
-	private String ended;
-	private String score;
-	private String percentage;
-	private String isPass;
-	private StudentAnswer[] studentAnswers;
+	//private String totalTime;
+	//private String ended;
+	private float studentscore;
+	private float totalScore;
+	private float percentage;
+	private boolean isPass;
+	private ArrayList<StudentAnswer> studentAnswers;
+	
+	public float getStudentscore() {
+		return studentscore;
+	}
+	public void setStudentscore(float studentscore) {
+		this.studentscore = studentscore;
+	}
+	public float getTotalScore() {
+		return totalScore;
+	}
+	public void setTotalScore(float totalScore) {
+		this.totalScore = totalScore;
+	}
+	public void setPass(boolean isPass) {
+		this.isPass = isPass;
+	}
 	
 	public String getTestId() {
 		return testId;
@@ -40,40 +59,24 @@ public class Test {
 	public void setEnd_Time(String end_Time) {
 		End_Time = end_Time;
 	}
-	public String getTotalTime() {
-		return totalTime;
-	}
-	public void setTotalTime(String totalTime) {
-		this.totalTime = totalTime;
-	}
-	public String getEnded() {
-		return ended;
-	}
-	public void setEnded(String ended) {
-		this.ended = ended;
-	}
-	public String getScore() {
-		return score;
-	}
-	public void setScore(String score) {
-		this.score = score;
-	}
-	public String getPercentage() {
+	
+	
+	public float getPercentage() {
 		return percentage;
 	}
-	public void setPercentage(String percentage) {
+	public void setPercentage(float percentage) {
 		this.percentage = percentage;
 	}
-	public String getIsPass() {
+	public boolean getIsPass() {
 		return isPass;
 	}
-	public void setIsPass(String isPass) {
+	public void setIsPass(boolean isPass) {
 		this.isPass = isPass;
 	}
-	public StudentAnswer[] getStudentAnswers() {
+	public ArrayList<StudentAnswer> getStudentAnswers() {
 		return studentAnswers;
 	}
-	public void setStudentAnswers(StudentAnswer[] studentAnswers) {
+	public void setStudentAnswers(ArrayList<StudentAnswer> studentAnswers) {
 		this.studentAnswers = studentAnswers;
 	}
 	

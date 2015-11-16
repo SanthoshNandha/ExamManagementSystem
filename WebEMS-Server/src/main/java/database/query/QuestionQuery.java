@@ -52,4 +52,13 @@ public class QuestionQuery {
     	
     }
     
+    public  Question retreiveAnswerforQuestionId(String queId){
+        Query findQuesAns = new Query();
+
+        findQuesAns.addCriteria(Criteria.where("questionId").is(queId));
+        findQuesAns.fields().include("answer").include("point");
+        Question que= (Question) mongoOps.findOne(findQuesAns, Question.class);
+        return que;
+}
+    
 }

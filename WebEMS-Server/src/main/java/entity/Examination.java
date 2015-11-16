@@ -15,14 +15,20 @@ public class Examination {
 	private String desc;
 	private String instructions;
 	private String duration;
-	private String maxScore;
-	private String passScore;
+	private float maxScore;
+	private float passScore;
 	private int numberofQuestions;
 	private String defaultAttempts;
 	private Date avialableFrom;
 	private Date avialableTo;
 	private ArrayList<String> questionIds;
 	
+	public void setMaxScore(float maxScore) {
+		this.maxScore = maxScore;
+	}
+	public void setPassScore(float passScore) {
+		this.passScore = passScore;
+	}
 	public String getCourseId() {
 		return courseId;
 	}
@@ -68,18 +74,6 @@ public class Examination {
 	}
 	public void setDuration(String duration) {
 		this.duration = duration;
-	}
-	public String getMaxScore() {
-		return maxScore;
-	}
-	public void setMaxScore(String maxScore) {
-		this.maxScore = maxScore;
-	}
-	public String getPassScore() {
-		return passScore;
-	}
-	public void setPassScore(String passScore) {
-		this.passScore = passScore;
 	}
 	public int getNumberofQuestions() {
 		return numberofQuestions;

@@ -5,29 +5,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "StudentAnswer")
 public class StudentAnswer {
 	
-	private String testId;
+	//private String testId;
 	private String questionId;
-	private String questionNo;
+	private int questionNo;
 	private String answeredChoice;
-	private String isCorrect;
-	private String points;
+	private boolean isCorrect;
+	private float points;
 	
-	public String getTestId() {
-		return testId;
-	}
-	public void setTestId(String testId) {
-		this.testId = testId;
-	}
 	public String getQuestionId() {
 		return questionId;
 	}
 	public void setQuestionId(String questionId) {
 		this.questionId = questionId;
 	}
-	public String getQuestionNo() {
+	public int getQuestionNo() {
 		return questionNo;
 	}
-	public void setQuestionNo(String questionNo) {
+	public void setQuestionNo(int questionNo) {
 		this.questionNo = questionNo;
 	}
 	public String getAnsweredChoice() {
@@ -36,16 +30,16 @@ public class StudentAnswer {
 	public void setAnsweredChoice(String answeredChoice) {
 		this.answeredChoice = answeredChoice;
 	}
-	public String getIsCorrect() {
+	public boolean getIsCorrect() {
 		return isCorrect;
 	}
-	public void setIsCorrect(String isCorrect) {
+	public void setIsCorrect(boolean isCorrect) {
 		this.isCorrect = isCorrect;
 	}
-	public String getPoints() {
+	public float getPoints() {
 		return points;
 	}
-	public void setPoints(String points) {
+	public void setPoints(float points) {
 		this.points = points;
 	}
 	

@@ -1,6 +1,7 @@
 package operations;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -79,14 +80,17 @@ public class ExamOperations {
     	 }
     	 else{
     		 Random randomGenerator=new Random();
-    		 int questionCount=0;
+    		 //int questionCount=0;
     		 int randomIndex=0;
+    		 HashSet<Question> tempRandomQue=new HashSet<Question>();
     		 ArrayList<Question> courseQuestions = questionOperations.retreiveAllQueForCourse(seletedExam.getCourseId());
-    		 while(seletedExam.getNumberofQuestions()>=questionCount){
+    		 while(seletedExam.getNumberofQuestions()>tempRandomQue.size()){
     			 randomIndex= randomGenerator.nextInt(courseQuestions.size());
-    			 testQuestions.add(courseQuestions.get(randomIndex));
-    			 questionCount++;
+    			 tempRandomQue.add(courseQuestions.get(randomIndex));
+    			 
     		 }
+    		 ArrayList<Question> mapConvert=new ArrayList<Question>(tempRandomQue);
+    		 testQuestions=mapConvert;
     	 }
     	 
     	 return testQuestions;

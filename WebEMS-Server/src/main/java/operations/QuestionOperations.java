@@ -39,4 +39,8 @@ public class QuestionOperations {
 		return questionQuery.retreiveAllQueForCourse(courseId);
 	}
 	
+	public Question retreiveAnswerforQuestionId(String queId){
+		return questionQuery.retreiveQuestionsforQuestionId(queId);
+	}
+	
 }

@@ -6,6 +6,15 @@ public class Result {
    private String authUserId;
    private String authUserType;
    private String errorMsg;
+   private float testScore;
+
+public float getTestScore() {
+	return testScore;
+}
+
+public void setTestScore(float testScore) {
+	this.testScore = testScore;
+}
 
 public String getErrorMsg() {
 	return errorMsg;
