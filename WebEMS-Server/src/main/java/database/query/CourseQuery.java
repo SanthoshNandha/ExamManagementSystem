@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import database.config.SpringMongoConfig;
 import entity.Course;
+import entity.Test;
 import entity.User;
 
 public class CourseQuery {
@@ -20,7 +21,13 @@ public class CourseQuery {
 		mongoOps.insert(course);
 	}
 
-	
+    public void removeCourse(String courseId){
+
+		Query removeCourse = new Query();
+		removeCourse.addCriteria(Criteria.where("courseId").is(courseId));
+		mongoOps.findAndRemove(removeCourse, Course.class);
+    }
+    
 	public Course retreiveExamIdforCourse(String courseId){
 		 
 		Query findExamforCourse = new Query();

@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import database.config.SpringMongoConfig;
+import entity.Test;
 import entity.User;
 import entity.UserType;
 
@@ -26,6 +27,20 @@ public class UserQuery {
     public void userTypeInsert(UserType userType){
 		mongoOps.insert(userType);
 	}
+    
+    public void removeUser(String userId){
+
+		Query removeUser = new Query();
+		removeUser.addCriteria(Criteria.where("userId").is(userId));
+		mongoOps.findAndRemove(removeUser, User.class);
+    }
+    
+    public void removeUserType(String userTypeId){
+
+		Query removeUserType = new Query();
+		removeUserType.addCriteria(Criteria.where("UserTypeId").is(userTypeId));
+		mongoOps.findAndRemove(removeUserType, UserType.class);
+    }
     
  public ArrayList<UserType> userTypeReterive(){
     	

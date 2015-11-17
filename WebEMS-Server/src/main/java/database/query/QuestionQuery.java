@@ -13,6 +13,7 @@ import entity.Examination;
 import entity.IdCount;
 import entity.Question;
 import entity.QuestionType;
+import entity.Test;
 
 public class QuestionQuery {
 	ApplicationContext ctx = 
@@ -27,7 +28,18 @@ public class QuestionQuery {
     public void questionTypeInsert(QuestionType questionType){
 		mongoOps.insert(questionType);
 	}
-    
+    public void removeQuestion(String questionId){
+
+		Query removeQuestion = new Query();
+		removeQuestion.addCriteria(Criteria.where("questionId").is(questionId));
+		mongoOps.findAndRemove(removeQuestion, Question.class);
+    }
+    public void removeQuestionType(String questionTypeId){
+
+		Query removeQuestionType = new Query();
+		removeQuestionType.addCriteria(Criteria.where("questionTypeId").is(questionTypeId));
+		mongoOps.findAndRemove(removeQuestionType, QuestionType.class);
+    }
     public ArrayList<Question> retrieveQuestions(){
     	ArrayList<Question> questionsList = (ArrayList<Question>) mongoOps.findAll(Question.class);
 		return questionsList;

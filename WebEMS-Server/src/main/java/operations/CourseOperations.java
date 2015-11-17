@@ -18,8 +18,13 @@ public class CourseOperations {
 		return result;
 	}
 	
+	 public Result removeCourse(String courseId){
+		   courseQuery.removeCourse(courseId);
+			result.setStatus("Success");
+			return result;
+		}
 	
-	public ArrayList<String> retrieveValidExamId(String courseId){
+	public ArrayList<String> retrieveValidExamIdForCourse(String courseId){
     	return (courseQuery.retreiveExamIdforCourse(courseId)).getExamIds();
     }
 }

@@ -28,6 +28,18 @@ public class ExamOperations {
 			return result;
 		}
 	
+	public Result removeExam(String examId){
+		examQuery.removeExam(examId);
+		result.setStatus("Success");
+		return result;
+	}
+	
+	public Result removeExamType(String examTypeId){
+		examQuery.removeExamType(examTypeId);
+		result.setStatus("Success");
+		return result;
+	}
+	
 	public Result examTypeInsert(ExamType examType){
 		 examQuery.examTypeInsert(examType);
 		 result.setStatus("Success");
@@ -51,7 +63,7 @@ public class ExamOperations {
 		ArrayList<String> examids=new ArrayList<String>();
 		//examids.add("");
 		for (String courseId: validCourse) {  
-			ArrayList<String> tempExamids=courseOperations.retrieveValidExamId(courseId);
+			ArrayList<String> tempExamids=courseOperations.retrieveValidExamIdForCourse(courseId);
 			if(tempExamids!=null)
 			examids.addAll(tempExamids);
 		}

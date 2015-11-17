@@ -13,6 +13,7 @@ import entity.ExamType;
 import entity.Examination;
 import entity.Question;
 import entity.QuestionType;
+import entity.Test;
 import entity.User;
 
 public class ExamQuery {
@@ -29,6 +30,19 @@ public class ExamQuery {
 		mongoOps.insert(examType);
 	}
     
+    public void removeExam(String examId){
+
+		Query removeExam = new Query();
+		removeExam.addCriteria(Criteria.where("examId").is(examId));
+		mongoOps.findAndRemove(removeExam, Examination.class);
+    }
+    
+    public void removeExamType(String examTypeId){
+
+		Query removeExamType = new Query();
+		removeExamType.addCriteria(Criteria.where("examTypeId").is(examTypeId));
+		mongoOps.findAndRemove(removeExamType, ExamType.class);
+    }
    
     public ArrayList<ExamType> retrieveExamTypes(){
     	ArrayList<ExamType> examTypeList = (ArrayList<ExamType>) mongoOps.findAll(ExamType.class);

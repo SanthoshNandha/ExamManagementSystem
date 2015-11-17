@@ -19,11 +19,23 @@ public class UserOperations {
 		return result;
 	}
     
+    public Result removeUser(String userId){
+    	userQuery.removeUser(userId);
+		result.setStatus("Success");
+		return result;
+	}
+    
     public Result userTypeInsert(UserType userType){
 		userQuery.userTypeInsert(userType);
 		result.setStatus("Success");
 		return result;	
     }
+    
+    public Result removeUserType(String userTypeId){
+    	userQuery.removeUserType(userTypeId);
+		result.setStatus("Success");
+		return result;
+	}
     
     public ArrayList<UserType> userTypeRetrieve(){
     	return userQuery.userTypeReterive();

@@ -127,10 +127,10 @@ public class HelloWorldConfiguration {
 		//examtype.setdescription("Number of question will be fixed");	examination.setexam_Name("DBMS Final Exam");
 		//examination.setdesc();
 		//examination.setinstructions();
-		examination.setExamId("EXM00009");
+		/*examination.setExamId("EXM00009");
 		examination.setDuration("3 Hours");
-		examination.setMaxScore("100");
-		examination.setPassScore("65");
+		examination.setMaxScore(100);
+		examination.setPassScore(65);
 		examination.setNumberofQuestions(5);
 		examination.setExamTypeID("ETY002");
 		examination.setExamName("mid term");
@@ -143,13 +143,14 @@ public class HelloWorldConfiguration {
 		questionsList.add("QUE00003");
 		examination.setQuestionIds(questionsList);
 		examination.setCourseId("COU00008");
+		
 		//examOperations.examInsert(examination);
 		ArrayList<Question> questions=examOperations.retreiveQuestionsforTest(examination);
 		
 		Question question= new Question();
 		//question.setQuestionId();
 		question.setQuestionTypeId("QTY003");
-		question.setQuestion("Wht ever is que 7 ");
+		question.setQuestion("question type 67 ");
 		question.setChoice1("Reflexsive Rule");
 		question.setChoice2("Augmentative Rule");
 		question.setChoice3("Transitive Rule");
@@ -161,9 +162,17 @@ public class HelloWorldConfiguration {
 		question.setCourseId("COU00008");
 		
 		//question.setCourseid();
-		
-		QuestionOperations questionOperations=new QuestionOperations();
-		questionOperations.questionInsert(question);
+*/		
+		//QuestionOperations questionOperations=new QuestionOperations();
+		//questionOperations.questionInsert(question);
+		//UserOperations userOperations= new UserOperations();
+		//CourseOperations co=new CourseOperations();
+		TestOperations to=new TestOperations();
+		//examOperations.removeExam("EXM00005");
+		//questionOperations.removeQuestion("QUE00005");
+		//userOperations.removeUser("USR00012");
+		//co.removeCourse("COU00005");
+		to.removeTest("00001");
 
 		
 		
@@ -172,7 +181,7 @@ public class HelloWorldConfiguration {
 		//examOperations.retrieveValidExamForUser("USR00017");
 		
 
-		System.out.println("------------------_------------questions"+question);
+		//System.out.println("------------------_------------questions"+question);
 		//System.out.println("idCountOperations.getUserIdCount()"+idCountOperations.getUserIdCount());
 		System.out.println("");
 		System.out.println("");

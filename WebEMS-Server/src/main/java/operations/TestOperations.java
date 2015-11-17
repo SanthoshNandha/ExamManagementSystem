@@ -16,8 +16,14 @@ public class TestOperations {
 	
 	public Result testInsert(Test test){
 		IdCountOperations idCountOperations=new IdCountOperations();
-		test.setTestId(idCountOperations.getTestIdCount());
+		test.setTestId("TST"+idCountOperations.getTestIdCount());
 		testQuery.testInsert(test);
+		result.setStatus("Success");
+		return result;
+	}
+	
+	public Result removeTest(String testId){
+		testQuery.removeTest(testId);
 		result.setStatus("Success");
 		return result;
 	}

@@ -27,6 +27,18 @@ public class QuestionOperations {
 		return result;
 	}
 	
+	public Result removeQuestion(String questionId){
+		    questionQuery.removeQuestion(questionId);
+			result.setStatus("Success");
+			return result;
+		}
+	
+	public Result removeQuestionType(String questionTypeId){
+	    questionQuery.removeQuestionType(questionTypeId);
+		result.setStatus("Success");
+		return result;
+	}
+	
 	public ArrayList<Question> retrieveQuestions(){
 		return questionQuery.retrieveQuestions();
 	}
