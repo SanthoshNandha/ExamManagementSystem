@@ -1,6 +1,7 @@
 package database.query;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -11,10 +12,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import database.config.SpringMongoConfig;
 import entity.ExamType;
 import entity.Examination;
-import entity.Question;
-import entity.QuestionType;
-import entity.Test;
-import entity.User;
 
 public class ExamQuery {
 	ApplicationContext ctx = 
@@ -23,7 +20,7 @@ public class ExamQuery {
             (MongoOperations) ctx.getBean("mongoTemplate");
     
     public void examInsert(Examination exam){
-		mongoOps.insert(exam);
+		mongoOps.insert(exam,"User");
 	}
     
     public void examTypeInsert(ExamType examType){
@@ -52,8 +49,10 @@ public class ExamQuery {
     public Examination retrieveExamforExamId(String examId){
 
 		Query findUserExam = new Query();
-		
+		Date currentdate=new Date();
 		findUserExam.addCriteria(Criteria.where("examId").is(examId));
+		findUserExam.addCriteria(Criteria.where("avialableFrom").gte(currentdate));
+		findUserExam.addCriteria(Criteria.where("avialableTo").lte(currentdate));
 		//findUserCourse.fields().include("courseIds").exclude("_id");
 		Examination validExam= (Examination) mongoOps.findOne(findUserExam, Examination.class);
 		 return validExam;

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Test {
 	
 	private String testId;
+	private String userId;
 	private String proctor_Id;
 	private String start_Time;
 	private String End_Time;
@@ -18,6 +19,13 @@ public class Test {
 	private float percentage;
 	private boolean isPass;
 	private ArrayList<StudentAnswer> studentAnswers;
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	
 	public float getStudentscore() {
 		return studentscore;

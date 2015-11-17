@@ -7,6 +7,15 @@ public class Result {
    private String authUserType;
    private String errorMsg;
    private float testScore;
+   private String testId;
+
+public String getTestId() {
+	return testId;
+}
+
+public void setTestId(String testId) {
+	this.testId = testId;
+}
 
 public float getTestScore() {
 	return testScore;

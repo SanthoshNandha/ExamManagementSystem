@@ -31,7 +31,7 @@ public class AuthQuery {
 		Query findAuth = new Query();
 		findAuth.addCriteria(Criteria.where("password").is(authentication.getPassword()));
 		findAuth.addCriteria(Criteria.where("userName").is(authentication.getUserName()));
-		findAuth.addCriteria(Criteria.where("userId").is(authentication.getUserId()));
+		//findAuth.addCriteria(Criteria.where("userId").is(authentication.getUserId()));
 		//findAuth.fields().include("password").include(key)
 		Authentication auth = mongoOps.findOne(findAuth, Authentication.class, "Authentication");
 		/*

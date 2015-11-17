@@ -78,6 +78,12 @@ public class Examination {
 	public int getNumberofQuestions() {
 		return numberofQuestions;
 	}
+	public float getMaxScore() {
+		return maxScore;
+	}
+	public float getPassScore() {
+		return passScore;
+	}
 	public void setNumberofQuestions(int numberofQuestions) {
 		this.numberofQuestions = numberofQuestions;
 	}

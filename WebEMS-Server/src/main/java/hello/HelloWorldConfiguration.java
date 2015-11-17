@@ -93,12 +93,7 @@ public class HelloWorldConfiguration {
 		UserOperations userOperations=new UserOperations();
 		userOperations.userInsert(user);
 		
-		Test test= new Test();
-		test.setScore("100");
-		test.setProctor_Id("BLA BLA");
 		
-		TestOperations testOperations=new TestOperations();
-		testOperations.testInsert(test);
 		
 		AuthOperations authOperations=new AuthOperations();
 		IdCountOperations idCountOperations=new IdCountOperations();
@@ -127,7 +122,7 @@ public class HelloWorldConfiguration {
 		//examtype.setdescription("Number of question will be fixed");	examination.setexam_Name("DBMS Final Exam");
 		//examination.setdesc();
 		//examination.setinstructions();
-		/*examination.setExamId("EXM00009");
+		examination.setExamId("EXM00009");
 		examination.setDuration("3 Hours");
 		examination.setMaxScore(100);
 		examination.setPassScore(65);
@@ -144,10 +139,42 @@ public class HelloWorldConfiguration {
 		examination.setQuestionIds(questionsList);
 		examination.setCourseId("COU00008");
 		
-		//examOperations.examInsert(examination);
-		ArrayList<Question> questions=examOperations.retreiveQuestionsforTest(examination);
+		examOperations.examInsert(examination);
+		//ArrayList<Question> questions=examOperations.retreiveQuestionsforTest(examination);
+		Test test= new Test();
+		test.setTotalScore(100.0f);
+		test.setProctor_Id("USR00001");
+		test.setIsPass(true);
+		test.setStudentscore(85);
+		test.setPercentage(85);
+		StudentAnswer studentAnswer=new StudentAnswer();
+		ArrayList<StudentAnswer> SA=new ArrayList<StudentAnswer>();
+		studentAnswer.setAnsweredChoice("c");
+		studentAnswer.setIsCorrect(true);
+		studentAnswer.setQuestionId("QUE00005");
+		studentAnswer.setQuestionNo(1);
+		StudentAnswer studentAnswer2=new StudentAnswer();
+		studentAnswer2.setAnsweredChoice("c");
+		studentAnswer2.setIsCorrect(true);
+		studentAnswer2.setQuestionId("QUE00002");
+		studentAnswer2.setQuestionNo(2);
+		StudentAnswer studentAnswer3=new StudentAnswer();
+		studentAnswer3.setAnsweredChoice("c");
+		studentAnswer3.setIsCorrect(true);
+		studentAnswer3.setQuestionId("QUE00001");
+		studentAnswer3.setQuestionNo(3);
+		SA.add(studentAnswer);
+		SA.add(studentAnswer2);
+		SA.add(studentAnswer3);
+		test.setStudentAnswers(SA);
 		
-		Question question= new Question();
+		
+		
+		
+		TestOperations testOperations=new TestOperations();
+		testOperations.testInsert(test);
+		
+		/*Question question= new Question();
 		//question.setQuestionId();
 		question.setQuestionTypeId("QTY003");
 		question.setQuestion("question type 67 ");
@@ -159,10 +186,10 @@ public class HelloWorldConfiguration {
 		question.setAnswer("Transitive Rule");
 		question.setPoint(12.0f);
 		question.setDifficultylevelid("Medium");
-		question.setCourseId("COU00008");
+		question.setCourseId("COU00008");*/
 		
 		//question.setCourseid();
-*/		
+		
 		//QuestionOperations questionOperations=new QuestionOperations();
 		//questionOperations.questionInsert(question);
 		//UserOperations userOperations= new UserOperations();
