@@ -23,6 +23,10 @@ public class CourseOperations {
 			result.setStatus("Success");
 			return result;
 		}
+	 
+	 public ArrayList<Course> retrieveAllCourse(){
+		 return courseQuery.retrieveAllCourse();
+	 }
 	
 	public ArrayList<String> retrieveValidExamIdForCourse(String courseId){
     	return (courseQuery.retreiveExamIdforCourse(courseId)).getExamIds();

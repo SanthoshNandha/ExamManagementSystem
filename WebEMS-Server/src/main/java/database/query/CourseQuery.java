@@ -1,5 +1,7 @@
 package database.query;
 
+import java.util.ArrayList;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -10,6 +12,7 @@ import database.config.SpringMongoConfig;
 import entity.Course;
 import entity.Test;
 import entity.User;
+import entity.UserType;
 
 public class CourseQuery {
 	ApplicationContext ctx = 
@@ -38,4 +41,9 @@ public class CourseQuery {
 		 return validExamids;
 	 
  }
+	
+	public ArrayList<Course> retrieveAllCourse(){
+		ArrayList<Course> courseList = (ArrayList<Course>) mongoOps.findAll(Course.class);
+		return courseList;
+	}
 }
