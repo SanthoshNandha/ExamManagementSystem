@@ -27,7 +27,9 @@ public class AuthOperations {
 		
 	}
 	
-	/*public String generateUserId(){
-		
-	}*/
+public Result removeAuth(String userId){
+	    authQuery.removeAuth(userId);
+		result.setStatus("Success");
+		return result;
+	}
 }

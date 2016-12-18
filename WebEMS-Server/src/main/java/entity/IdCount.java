@@ -10,6 +10,13 @@ public class IdCount {
 	private int examIdCount;
 	private int questionIdCount;
 	private int testIdCount;
+	private int examTypeIdCount;
+	public int getExamTypeIdCount() {
+		return examTypeIdCount;
+	}
+	public void setExamTypeIdCount(int examTypeIdCount) {
+		this.examTypeIdCount = examTypeIdCount;
+	}
 	public int getUserIdCount() {
 		return userIdCount;
 	}

@@ -18,8 +18,8 @@ public class IdCountQuery {
     MongoOperations mongoOps = 
             (MongoOperations) ctx.getBean("mongoTemplate");
     
-    public void IdCountInsert(IdCount IdCount){
-    	mongoOps.insert(IdCount);
+    public void IdCountInsert(IdCount idCount){
+    	mongoOps.insert(idCount);
     }
     
     public ArrayList<IdCount> IdCountReterive(IdCount idCount){

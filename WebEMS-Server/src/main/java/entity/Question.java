@@ -7,7 +7,7 @@ public class Question {
 	
 	private String questionId;
 	private String questionTypeId;
-	private String question;
+	private String questionText;
 	private String choice1;
 	private String choice2;
 	private String choice3;
@@ -18,6 +18,15 @@ public class Question {
 	//private String questionduration;
 	private String difficultylevelid;
 	private String courseId;
+	public String getQuestionText() {
+		return questionText;
+	}
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
+	}
+	public void setPoint(float point) {
+		this.point = point;
+	}
 	public String getQuestionId() {
 		return questionId;
 	}
@@ -30,12 +39,7 @@ public class Question {
 	public void setQuestionTypeId(String questionTypeId) {
 		this.questionTypeId = questionTypeId;
 	}
-	public String getQuestion() {
-		return question;
-	}
-	public void setQuestion(String question) {
-		this.question = question;
-	}
+	
 	public String getChoice1() {
 		return choice1;
 	}

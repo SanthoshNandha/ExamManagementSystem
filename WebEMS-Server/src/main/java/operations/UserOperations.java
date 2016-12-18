@@ -3,6 +3,7 @@ package operations;
 import java.util.ArrayList;
 
 import database.query.UserQuery;
+import entity.Authentication;
 import entity.Result;
 import entity.User;
 import entity.UserType;
@@ -12,15 +13,27 @@ public class UserOperations {
     Result result=new Result();
 	
     public Result userInsert(User user){
+    	Authentication auth= new Authentication();
+    	AuthOperations authOp=new AuthOperations();
     	IdCountOperations idCountOperations=new IdCountOperations();
     	user.setUserId("USR"+idCountOperations.getUserIdCount());
+    	auth.setPassword("password");
+    	auth.setUserName(user.getFirstName()+" "+user.getLastName());
+    	auth.setUserId(user.getUserId());
+    	auth.setUserType(user.getUserType());
 		userQuery.userInsert(user);
+		authOp.authInsert(auth);
 		result.setStatus("Success");
+		result.setUserId(user.getUserId());
 		return result;
 	}
     
     public Result removeUser(String userId){
+    	
+    	AuthOperations authOp=new AuthOperations();
+    	
     	userQuery.removeUser(userId);
+    	authOp.removeAuth(userId);
 		result.setStatus("Success");
 		return result;
 	}

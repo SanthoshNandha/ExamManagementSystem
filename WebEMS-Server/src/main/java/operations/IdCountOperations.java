@@ -115,5 +115,26 @@ public class IdCountOperations {
 		return maxIdCountStr;
 	}
 	
+	public String getExamTypeIdCount(){
+		ArrayList<IdCount> idCountList=idCountQuery.IdCountReterive(idCount);
+		idCountQuery.IdCountDrop(idCount);
+		Iterator<IdCount> it=idCountList.iterator();
+		int maxIdCount=-1;
+		while(it.hasNext()){
+			IdCount IdCountIt=it.next();
+			if (maxIdCount<IdCountIt.getExamTypeIdCount()){
+				maxIdCount=IdCountIt.getExamTypeIdCount();
+				idCount=IdCountIt;
+			}
+		}
+		maxIdCount++;
+		idCount.setExamTypeIdCount(maxIdCount);
+		idCountQuery.IdCountInsert(idCount);
+		String maxIdCountStr=Integer.toString(maxIdCount);
+		while(maxIdCountStr.length()<=2)
+			maxIdCountStr="0"+maxIdCountStr;
+		return maxIdCountStr;
+	}
+	
 	
 }

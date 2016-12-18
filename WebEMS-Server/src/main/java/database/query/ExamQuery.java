@@ -20,7 +20,7 @@ public class ExamQuery {
             (MongoOperations) ctx.getBean("mongoTemplate");
     
     public void examInsert(Examination exam){
-		mongoOps.insert(exam,"User");
+		mongoOps.insert(exam);
 	}
     
     public void examTypeInsert(ExamType examType){
@@ -51,8 +51,8 @@ public class ExamQuery {
 		Query findUserExam = new Query();
 		Date currentdate=new Date();
 		findUserExam.addCriteria(Criteria.where("examId").is(examId));
-		findUserExam.addCriteria(Criteria.where("avialableFrom").gte(currentdate));
-		findUserExam.addCriteria(Criteria.where("avialableTo").lte(currentdate));
+		//findUserExam.addCriteria(Criteria.where("avialableFrom").gte(currentdate));
+		//findUserExam.addCriteria(Criteria.where("avialableTo").lte(currentdate));
 		//findUserCourse.fields().include("courseIds").exclude("_id");
 		Examination validExam= (Examination) mongoOps.findOne(findUserExam, Examination.class);
 		 return validExam;

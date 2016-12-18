@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
 import database.config.SpringMongoConfig;
 import entity.Authentication;
@@ -17,6 +19,7 @@ import entity.Examination;
 import entity.IdCount;
 import entity.Question;
 import entity.QuestionType;
+import entity.Result;
 import entity.Sem;
 import entity.StudentAnswer;
 import entity.Test;
@@ -37,92 +40,9 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 public class HelloWorldConfiguration {
 
 	public static void main(String[] args) {
-		/*PodamFactory factory = new PodamFactoryImpl();
-		User user = factory.manufacturePojo(User.class);
-		Authentication authentication= factory.manufacturePojo(Authentication .class);
-		Course course= factory.manufacturePojo(Course.class);
-		Examination Examination= factory.manufacturePojo(Examination.class);
-		ExamType examType= factory.manufacturePojo(ExamType.class);
-		Question question= factory.manufacturePojo(Question.class);
-		QuestionType questionType= factory.manufacturePojo(QuestionType.class);
-		Sem sem= factory.manufacturePojo(Sem.class);
-		StudentAnswer studentAnswer= factory.manufacturePojo(StudentAnswer.class);
-		Test test= factory.manufacturePojo(Test.class);
-		//User User= factory.manufacturePojo(User.class);
-		UserType userType= factory.manufacturePojo(UserType.class);
-		UserOperations userOperations=new UserOperations();
-		userOperations.userInsert(user);
-		userOperations.userTypeInsert(userType);
-		AuthOperations authOperations=new AuthOperations();
-		authOperations.authInsert(authentication);
-		CourseOperations courseOperations=new CourseOperations();
-		courseOperations.courseInsert(course);
-		ExamOperations examOperations=new ExamOperations();
-		examOperations.examInsert(Examination);
-		examOperations.examTypeInsert(examType);
-		QuestionOperations questionOperations=new QuestionOperations();
-		questionOperations.questionInsert(question);
-		questionOperations.questionTypeInsert(questionType);
-		StudentAnswerOperations studentAnswerOperations=new StudentAnswerOperations();
-		studentAnswerOperations.examInsert(studentAnswer);
-		TestOperations testOperations=new TestOperations();
-		testOperations.testInsert(test);*/
-		//UserOperations
-		
-		/*Authentication authentication=new Authentication();
-		authentication.setUserName("ANISH");
-		authentication.setPassword("ANISH");
-		authentication.setUserId("USR0001");
-		AuthOperations authOperations=new AuthOperations();
-		authOperations.authValidate(authentication);*/
-		/*User user=new User();
-		user.setAddressLineOne("1500 sparkman Dr");
-		user.setAddressLineTwo("Nw 30E");
-		user.setCity("Huntsville");
-		user.setCountry("USA");
-		String[] courseList={"COU00005","COU00006","COU00007"};
-		user.setCourses(courseList);
-		user.setDateOfBirth(new Date());
-		user.setEmailID("anish@gmail.com");
-		user.setFirstName("Ashwini");
-		user.setLastName("Y s");
-		user.setMobileNumber("2564798222");
-		user.setSex("male");
-		user.setState("Alabama");
-		//user.setUserId("USR002");
-		UserOperations userOperations=new UserOperations();
-		userOperations.userInsert(user);
-		
-		
-		
-		AuthOperations authOperations=new AuthOperations();
-		IdCountOperations idCountOperations=new IdCountOperations();
-		//idCountOperations.getUserIdCount();
-		Course course= new Course();
-		//course.setCourseId();
-		course.setCourseName("SE3");
-		course.setCourseCode("CS501");
-		Sem sem=new Sem();
-		sem.setSemName("Spring");
-		sem.setYear(2000);
-		
-		course.setSem(sem);
-		ArrayList<String> examid=new ArrayList<String>();
-		examid.add("EXM00004");
-		examid.add("EXM00005");
-		examid.add("EXM00006");
-		course.setExamIds(examid);
-		CourseOperations courseOperations=new CourseOperations();
-		courseOperations.courseInsert(course);*/
-		
 		Examination examination= new Examination();
-		ExamOperations examOperations=new ExamOperations();
-		//examination.setexamId();
-		
-		//examtype.setdescription("Number of question will be fixed");	examination.setexam_Name("DBMS Final Exam");
-		//examination.setdesc();
-		//examination.setinstructions();
-		examination.setExamId("EXM00009");
+		ExamOperations eo=new ExamOperations();
+		/*//examination.setExamId("EXM00009");
 		examination.setDuration("3 Hours");
 		examination.setMaxScore(100);
 		examination.setPassScore(65);
@@ -137,79 +57,59 @@ public class HelloWorldConfiguration {
 		questionsList.add("QUE00002");
 		questionsList.add("QUE00003");
 		examination.setQuestionIds(questionsList);
-		examination.setCourseId("COU00008");
+		examination.setCourseId("COU00001");
+
 		
-		examOperations.examInsert(examination);
-		//ArrayList<Question> questions=examOperations.retreiveQuestionsforTest(examination);
+		
+		eo.examInsert(examination);*/
+		
+
+		//System.out.println("------------------_------------questions"+question);
+		//System.out.println("idCountOperations.getUserIdCount()"+idCountOperations.getUserIdCount());
+		//eo.retrieveValidExamForUser("USR00025");
+		//eo.retreiveQuestionsforTest("EXM00001");
+		/*Authentication authentication=new Authentication();
+		authentication.setUserId("US00026");
+		authentication.setPassword("password");
+		AuthOperations authOperations=new AuthOperations();
+		authOperations.authValidate(authentication);*/
+		
+		/*CourseOperations co=new CourseOperations();
+		co.insertExamToCourse("COU00010","EXM00001");*/
+		
 		Test test= new Test();
 		test.setTotalScore(100.0f);
 		test.setProctor_Id("USR00001");
-		test.setIsPass(true);
-		test.setStudentscore(85);
-		test.setPercentage(85);
+		//test.setIsPass(true);
+		//test.setStudentscore(85);
+		//test.setPercentage(85);
 		StudentAnswer studentAnswer=new StudentAnswer();
 		ArrayList<StudentAnswer> SA=new ArrayList<StudentAnswer>();
-		studentAnswer.setAnsweredChoice("c");
+		studentAnswer.setAnsweredChoice("Transitive Rule");
 		studentAnswer.setIsCorrect(true);
-		studentAnswer.setQuestionId("QUE00005");
+		studentAnswer.setQuestionId("QUE00001");
 		studentAnswer.setQuestionNo(1);
 		StudentAnswer studentAnswer2=new StudentAnswer();
-		studentAnswer2.setAnsweredChoice("c");
+		studentAnswer2.setAnsweredChoice("Transitive Rule");
 		studentAnswer2.setIsCorrect(true);
 		studentAnswer2.setQuestionId("QUE00002");
 		studentAnswer2.setQuestionNo(2);
-		StudentAnswer studentAnswer3=new StudentAnswer();
-		studentAnswer3.setAnsweredChoice("c");
+		/*StudentAnswer studentAnswer3=new StudentAnswer();
+		studentAnswer3.setAnsweredChoice("Transitive Rule");
 		studentAnswer3.setIsCorrect(true);
-		studentAnswer3.setQuestionId("QUE00001");
-		studentAnswer3.setQuestionNo(3);
+		studentAnswer3.setQuestionId("QUE00015");
+		studentAnswer3.setQuestionNo(3);*/
 		SA.add(studentAnswer);
 		SA.add(studentAnswer2);
-		SA.add(studentAnswer3);
+		//SA.add(studentAnswer3);
 		test.setStudentAnswers(SA);
 		
 		
 		
 		
 		TestOperations testOperations=new TestOperations();
-		testOperations.testInsert(test);
-		
-		/*Question question= new Question();
-		//question.setQuestionId();
-		question.setQuestionTypeId("QTY003");
-		question.setQuestion("question type 67 ");
-		question.setChoice1("Reflexsive Rule");
-		question.setChoice2("Augmentative Rule");
-		question.setChoice3("Transitive Rule");
-		question.setChoice4("Union Rule");
-		question.setChoice5("None of the above");
-		question.setAnswer("Transitive Rule");
-		question.setPoint(12.0f);
-		question.setDifficultylevelid("Medium");
-		question.setCourseId("COU00008");*/
-		
-		//question.setCourseid();
-		
-		//QuestionOperations questionOperations=new QuestionOperations();
-		//questionOperations.questionInsert(question);
-		//UserOperations userOperations= new UserOperations();
-		//CourseOperations co=new CourseOperations();
-		TestOperations to=new TestOperations();
-		//examOperations.removeExam("EXM00005");
-		//questionOperations.removeQuestion("QUE00005");
-		//userOperations.removeUser("USR00012");
-		//co.removeCourse("COU00005");
-		to.removeTest("00001");
-
-		
-		
-		
-		 //ExamOperations examOperations=new ExamOperations();
-		//examOperations.retrieveValidExamForUser("USR00017");
-		
-
-		//System.out.println("------------------_------------questions"+question);
-		//System.out.println("idCountOperations.getUserIdCount()"+idCountOperations.getUserIdCount());
+		//testOperations.testInsert(test);
+		Result result=testOperations.evaluateAndSaveTest(test);
 		System.out.println("");
 		System.out.println("");
 		System.out.println("");

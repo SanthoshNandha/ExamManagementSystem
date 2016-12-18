@@ -8,6 +8,15 @@ public class Result {
    private String errorMsg;
    private float testScore;
    private String testId;
+   private String userId;
+   
+   public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 public String getTestId() {
 	return testId;

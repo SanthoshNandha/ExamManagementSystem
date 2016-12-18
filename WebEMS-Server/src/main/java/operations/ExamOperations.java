@@ -21,9 +21,11 @@ public class ExamOperations {
 	Result result=new Result();
 	
 	public Result examInsert(Examination exam){
+		  CourseOperations co=new CourseOperations();
 		  IdCountOperations idCountOperations=new IdCountOperations();
 		  exam.setExamId("EXM"+idCountOperations.getExamIdCount());
-		   examQuery.examInsert(exam);
+		  co.insertExamToCourse(exam.getCourseId(),exam.getExamId());
+		  examQuery.examInsert(exam);
 		   result.setStatus("Success");
 			return result;
 		}
@@ -41,6 +43,8 @@ public class ExamOperations {
 	}
 	
 	public Result examTypeInsert(ExamType examType){
+		IdCountOperations idCountOperations=new IdCountOperations();
+		examType.setExamTypeId("ETY"+idCountOperations.getExamTypeIdCount());
 		 examQuery.examTypeInsert(examType);
 		 result.setStatus("Success");
 		 return result;
@@ -70,15 +74,17 @@ public class ExamOperations {
 		Iterator it=examids.iterator();
 		
 		ArrayList<Examination> validExams=new ArrayList<Examination>();
+		
 		while(it.hasNext())
 			validExams.add(retrieveExamforExamId((String)it.next()));
 		return validExams;
 		
 	}
 	
-     public ArrayList<Question> retreiveQuestionsforTest(Examination seletedExam){
+     public ArrayList<Question> retreiveQuestionsforTest(String examId){
     	 ArrayList<Question> testQuestions=new ArrayList<Question>();
     	 QuestionOperations questionOperations= new QuestionOperations();
+    	 Examination seletedExam=retrieveExamforExamId(examId);
     	 if(seletedExam.getExamTypeID()!=null && seletedExam.getExamTypeID().equals("ETY001")){
     		 if(seletedExam.getQuestionIds()!=null){
     	      Iterator it=seletedExam.getQuestionIds().iterator();

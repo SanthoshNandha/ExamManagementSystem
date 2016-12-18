@@ -12,6 +12,7 @@ import com.mongodb.DBCursor;
 
 import database.config.SpringMongoConfig;
 import entity.Authentication;
+import entity.User;
 
 
 
@@ -30,8 +31,8 @@ public class AuthQuery {
 	public Authentication authRetrieve(Authentication authentication){
 		Query findAuth = new Query();
 		findAuth.addCriteria(Criteria.where("password").is(authentication.getPassword()));
-		findAuth.addCriteria(Criteria.where("userName").is(authentication.getUserName()));
-		//findAuth.addCriteria(Criteria.where("userId").is(authentication.getUserId()));
+		//findAuth.addCriteria(Criteria.where("userName").is(authentication.getUserName()));
+		findAuth.addCriteria(Criteria.where("userId").is(authentication.getUserId()));
 		//findAuth.fields().include("password").include(key)
 		Authentication auth = mongoOps.findOne(findAuth, Authentication.class, "Authentication");
 		/*
@@ -39,5 +40,10 @@ public class AuthQuery {
 		DBCursor curs=*/
 		return auth;
 	}
-	
+	public void removeAuth(String userId){
+
+		Query removeUser = new Query();
+		removeUser.addCriteria(Criteria.where("userId").is(userId));
+		mongoOps.findAndRemove(removeUser, Authentication.class);
+    }
 }

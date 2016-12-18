@@ -31,4 +31,10 @@ public class CourseOperations {
 	public ArrayList<String> retrieveValidExamIdForCourse(String courseId){
     	return (courseQuery.retreiveExamIdforCourse(courseId)).getExamIds();
     }
+	
+	public Result insertExamToCourse(String courseId,String examId){
+		courseQuery.insertExamToCourse(courseId,examId);
+		result.setStatus("Success");
+		return result;
+	}
 }
