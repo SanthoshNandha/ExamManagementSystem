@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-cookies.min.js"></script>
+  <script src="angularjs/controller/takeTest.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+<title>takeTest</title>
+</head>
+<body ng-app="takeTestModule" >
+  <div  ng-controller="takeTestController" ng-init = "loadQuestions()">
+  	<form name="testForm" ng-submit="submitStudentAnswers(submitTestResult)" >
+  		<div ng-repeat="examquestion in Examquestions">
+  		<input type="hidden" ng-init="examquestion.questionNo = $index + 1">
+  			<label>[{{$index +1}}].{{examquestion.question}}</label><br />
+  			<div ng-repeat = "choice in examquestion.choices ">
+  				<input type="radio" ng-model="examquestion.answeredChoice" value="{{choice}}">
+    				{{choice}}
+  			<br/>
+  			</div>
+  		</div>
+  		<button type="submit">Submit Test</button>
+ 	</form>
+ </div>
+</body>
+</html>

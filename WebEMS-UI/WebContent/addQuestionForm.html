@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  <script src="angularjs/controller/addQuestion.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+  <style>
+    
+  </style>
+</head>
+
+<body ng-app="addNewQuestion" >
+  <div  ng-controller="addNewQuestionController" ng-init = "loadpage()">
+  <a href="home.html">HOME</a>
+<h1>ADD NEW QUESTION :</h1>
+    <form name="addQuestion" ng-submit="submitNewQuestion(submitQuestionResult)" novalidate>
+      <table style="width:40%">
+        <tr>
+          <td>
+            <label for="questionText">Question text</label>
+          </td>
+           
+          <td>
+            <textarea id="questionText" type="textarea" name="questionText" ng-model="newQuestion.question" required />
+	        </textarea>
+	      </td>
+	    </tr>
+	    
+	    <tr>
+	      <td>
+	  		<label for="choice 1">Choice 1</label>
+            </td>
+            <td>
+                  <input id="choice1" type="text" name="choice1" ng-model="choice1" required /><br />
+            </td>
+          </tr>
+        
+	    <tr>
+	      <td>
+	  		<label for="choice2">Choice 2</label>
+            </td>
+            <td>
+            	<input id="choice2" type="text" name="choice2" ng-model="choice2" required /><br />
+            </td>
+          </tr>
+         
+	    <tr>
+	      <td>
+	  		<label for="choice3">Choice 3</label>
+            </td>
+            <td>
+            	<input id="choice3" type="text" name="choice3" ng-model="choice3" required /><br />
+            </td>
+          </tr>
+
+	    <tr>
+	      <td>
+	  		<label for="choice 4">Choice 4</label>
+            </td>
+            <td>
+            	<input id="choice4" type="text" name="choice4" ng-model="choice4" required /><br />
+            </td>
+          </tr>
+
+          <tr>
+	      <td>
+	  		<label for="choice5">Choice 5</label>
+            </td>
+            <td>
+            	<input id="choice5" type="text" name="choice5" ng-model="choice5" required /><br />
+            </td>
+          </tr>
+
+
+	    <tr>
+	      <td>
+	  		<label for="answer">Answer</label>
+            </td>
+            <td>
+            	<input id="answer" type="text" name="answer" ng-model="newQuestion.answer" required /><br />
+            </td>
+          </tr>
+	    
+	    <tr>
+	      <td>
+	  		<label for="point">Point</label>
+            </td>
+            <td>
+            	<input id="point" type="range" min="0" max="20" name="point" ng-model="newQuestion.point" required /><br />
+            </td>
+          </tr>
+          
+          <tr>
+	      <td>
+	  		<label for="courseCode">CourseCode</label>
+            </td>
+            <td>
+            	<Select id="courseCode" ng-model="newQuestion.courseId" >
+      			<option ng-repeat="course in courses" value="{{course.courseId}}">{{course.courseCode}}</option>
+      			</Select>
+            </td>
+          </tr> 
+	  <td></td><td></td><td></td><td>
+      <button type="submit">Submit</button>
+      </td>
+      </table>
+      </form>
+      <br />
+      <p>{{submitStatus}}</p><br />
+  </div>
+</body>
+</html>  
+
+
+

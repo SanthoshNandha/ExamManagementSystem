@@ -114,11 +114,11 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-	public String[] getCourses() {
+	public String[] getCourseIds() {
 		return courseIds;
 	}
-	public void setCourses(String[] courses) {
-		this.courseIds = courses;
+	public void setCourseIds(String[] courseIds) {
+		this.courseIds = courseIds;
 	}
 	
 	

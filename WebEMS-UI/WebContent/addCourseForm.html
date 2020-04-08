@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  <script src="angularjs/controller/addCourse.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+  <style>
+   
+  </style>
+</head>
+
+<body ng-app="addCourse" >
+  <div  ng-controller="addNewCourseController">
+  <a href="home.html">HOME</a>
+	<h1>ADD NEW COURSE </h1>
+    <form name="addCourse" ng-submit="submitNewCourse(submitCourse)" novalidate>
+      <table>
+        <tr>
+          <td>
+            <label for="courseName">Course name</label>
+          </td>
+          <td>
+            <input id="courseName" type="text" name="courseName" ng-model="newCourse.courseName" required /><br />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>
+	  		<label for="courseCode">Course code</label>
+          </td>
+          <td>
+            <input id="courseCode" type="text" name="courseCode" ng-model="newCourse.courseCode" required /><br />
+          </td>
+        </tr> 
+       
+        <tr>
+          <td>
+            <label for="sem">Sem</label>
+          </td>
+          <td>
+            <select ng-model="newCourse.sem.semName" required>
+            <option >Select SemName</option>
+            <option>Fall</option>
+            <option>Spring</option>
+            <option>Summer</option>
+            </select>
+          
+      		<select ng-model="newCourse.sem.year" required>
+            <option>Select SemYear</option>
+      		<script>
+  	     		var myDate = new Date();
+         		var year = myDate.getFullYear();
+         		for(var i = 2008; i < year+3; i++)
+         		{
+	         		document.write('<option value="'+i+'">'+i+'</option>');
+  		 		}
+      		</script>
+      		</select>
+         </td>
+      </tr>
+      <td></td><td> <label /> </td><td></td><td>
+      <button type="submit" ng-disabled="addCourse.$invalid">Submit</button>
+      </td>
+      </table>
+      </form>
+      <br />
+      <p>{{submitStatus}}</p><br />
+  </div>
+</body>
+</html>

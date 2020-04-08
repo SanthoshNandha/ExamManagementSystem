@@ -1,0 +1,54 @@
+body {
+     background-color:#CEF6EC;
+}
+
+h1 {
+    color:#ffffff;
+    background-color:#002f5e;
+    border-style: double;
+}
+table{
+	border-collapse: separate;
+	border-spacing: 1em;
+}
+label
+    {
+      display: inline-block;
+      width:10px;
+      vertical-align: middle;
+      color:#09095e;
+      text-align: centre;
+    }
+    button
+    {
+     color:#ffffff;
+    background-color:#002f5e;
+    align:centre;
+    }
+
+    input
+    {
+      display: inline-block;
+      width: 150px;
+      vertical-align: middle;
+    }
+    select
+    {
+     display: inline-block;
+      width: 225px;
+      vertical-align: middle;
+    }
+
+    input.ng-invalid
+    {
+      border: solid #0040802px;
+    }
+
+    textarea
+    {
+      width: 500px;
+      height: 150px;
+    }
+    tr.row2.td{
+   padding-top:40px;
+   }

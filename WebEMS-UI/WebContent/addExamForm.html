@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-cookies.min.js"></script>
+  <script src="angularjs/controller/addExam.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+  <style>
+    
+  </style>
+</head>
+<body ng-app="addNewExam" >
+  <div  ng-controller="addNewExamController" ng-init="loadpage()">
+  <a href="home.html">HOME</a>
+    <h1>ADD NEW EXAM :</h1>
+    <form name="addExam" ng-submit="submitNewExam(submitExamResult)" novalidate>
+    <table style="width:40%">
+     <tr>
+        <td>
+           <label for="courseId">Course ID:</label>
+        </td>
+        <td>
+      <select id="courseId" name = "courseId" ng-model = "newExam.courseId" ng-options="course for course in courses" ng-change="loadQuestions()" required>
+      </select>
+        </td>
+      </tr>
+      
+      <tr>
+         <td>
+            <label for="ExamType">Exam Type:</label>
+         </td>
+         <td>
+            <Select id="ExamType" name="examType" ng-model="newExam.examTypeID" required >
+            <option ng-repeat="examtype in examTypes" value="{{examtype.examTypeId}}">{{examtype.examTypeName}}</option>
+            </select><br />
+         </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <label for="examName">Exam name:</label>
+        </td>
+        <td>  
+          <input id="examName" type="text" name="examName" ng-model="newExam.examName" required /><br />
+        </td>
+      </tr>
+      
+      <tr>
+         <td>
+            <label for="desc">Description:</label>
+		 </td>      
+         <td>
+            <input id="desc" type="text" name="desc" ng-model="newExam.desc" required /><br />
+         </td>
+      </tr>
+      <tr>
+         <td>
+           <label for="maxScore">MaxScore:</label>
+         </td>
+         <td> 
+      	   <input id="maxScore" type="text" name="maxScore" ng-model="newExam.maxScore" required /><br />
+         </td>
+      </tr>
+      
+      <tr>
+         <td>
+      		<label for="passScore">PassScore:</label>
+         </td>
+         <td>
+            <input id="passScore" type="text" name="passScore" ng-model="newExam.passScore" required /><br />
+         </td>
+      </tr>
+      
+      <tr>
+         <td>
+      	    <label for="NumberofQuestions">Number of Questions:</label>
+         </td>
+         <td>     
+            <input id="NumberofQuestions" type="text" name="NumberofQuestions" ng-model="newExam.noofQuestions" required /><br />
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <label for="availableFrom">Available From:</label>
+         </td>
+         <td>     
+            <input id="availableFrom" type="date" name="availableFrom" ng-model="newExam.availableFrom" placeholder="yyyy-MM-dd" required /><br />
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <label for="availableTo">Available To:</label>
+         </td>      
+         <td>
+            <input id="availableTo" type="date" name="availableTo" ng-model="newExam.availableTo" placeholder="yyyy-MM-dd" required /><br />
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <label for="examQuestions">Questions:</label>
+         </td>
+         <td>
+      <select size="10" id="examQuestions" multiple ng-multiple="true" ng-model="newExam.questionIds" >
+      <option ng-repeat="question in questions" value="{{question.questionId}}">{{question.question}}</option>
+      </select><br />
+         </td>
+      </tr>
+      <td></td><td> <label /> </td><td></td><td>
+      <button type="submit" ng-disabled="addExam.$invalid">Submit</button>
+      </td>
+      </table>
+      </form>
+     <br />
+    {{submitStatus}}
+  </div>
+</body>
+</html>

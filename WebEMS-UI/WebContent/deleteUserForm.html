@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  <script src="angularjs/controller/deleteUser.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+  <style>
+  </style>
+</head>
+
+<body ng-app="deleteUserModule" >
+  <div  ng-controller="deleteUserController">
+  <a href="home.html">HOME</a>
+    <h1>DELETE USER </h1>
+    <form name="deleteUserForm" ng-submit="deleteUser()" novalidate>
+    <table style="width:40%">
+      <tr>
+      <td>
+      <label for="userId">UserId</label>
+      </td>
+      <td>
+      <input type="text" id = "userId" name = "userId"  ng-model="userId" required />
+	  </td>
+	  </tr>
+	  <tr>
+      <td colspan="2">
+      <button type="submit">Delete</button>
+      </td>
+      </tr>
+    </table>
+    </form>
+    {{deleteResult}}
+  </div>
+</body>
+</html>

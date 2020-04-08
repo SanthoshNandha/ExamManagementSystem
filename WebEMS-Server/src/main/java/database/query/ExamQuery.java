@@ -49,7 +49,6 @@ public class ExamQuery {
     public Examination retrieveExamforExamId(String examId){
 
 		Query findUserExam = new Query();
-		Date currentdate=new Date();
 		findUserExam.addCriteria(Criteria.where("examId").is(examId));
 		//findUserExam.addCriteria(Criteria.where("avialableFrom").gte(currentdate));
 		//findUserExam.addCriteria(Criteria.where("avialableTo").lte(currentdate));

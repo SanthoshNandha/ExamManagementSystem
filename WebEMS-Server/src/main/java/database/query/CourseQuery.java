@@ -11,10 +11,6 @@ import org.springframework.data.mongodb.core.query.Update;
 
 import database.config.SpringMongoConfig;
 import entity.Course;
-import entity.Examination;
-import entity.Test;
-import entity.User;
-import entity.UserType;
 
 public class CourseQuery {
 	ApplicationContext ctx = 

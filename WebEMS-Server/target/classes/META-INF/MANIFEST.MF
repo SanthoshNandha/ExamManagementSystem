@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: WebEMS-Server
 Implementation-Version: 0.1.0
-Built-By: Anishys
+Built-By: H.P
 Implementation-Vendor-Id: org.webems.spring
-Build-Jdk: 1.8.0_60
+Build-Jdk: 1.8.0_65
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 

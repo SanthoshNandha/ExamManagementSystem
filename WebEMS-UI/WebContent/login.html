@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-cookies.min.js"></script>
+<script src="angularjs/controller/login.js"></script>
+<link rel="stylesheet" type="text/css" href="css/myLogin.css">
+<title>Login</title>
+<style>
+  </style>
+</head>
+<body ng-app="authenticationModule">
+<form name="loginForm" ng-controller="LoginController" ng-submit="login()" novalidate>
+<div>
+
+<h1 align="center"> UAH Exam Portal</h1>
+</div>
+<center>
+<table cellpadding="0" cellspacing="0" width="50%" border="0">
+<tr class="row1">
+ <td> <label for="username">Username:</label></td>
+  <td><input type="text" id="username" ng-model="credentials.userId" required="required"></td>
+  </tr>
+  <br/>
+  <br/>
+  <tr class="row2">
+ <td> <label for="password">Password:</label></td>
+  <td><input type="password" id="password" ng-model="credentials.password" required="required"></td>
+  </tr>
+  <tr>
+  <td colspan = "2"><button type="submit" ng-disabled="loginForm.$invalid" >Login</button></td>
+  <p>{{loginResult}}</p>
+  </tr>
+  </table>
+  </center>
+</form>
+</body>
+</html>

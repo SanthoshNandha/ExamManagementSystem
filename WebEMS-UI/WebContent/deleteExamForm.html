@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  <script src="angularjs/controller/deleteExam.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+  <style>
+  </style>
+</head>
+
+<body ng-app="deleteExamModule" >
+  <div  ng-controller="deleteExamController">
+  <a href="home.html">HOME</a>
+    <h1>DELETE EXAM </h1>
+    <form name="deleteExamForm" ng-submit="deleteExam()" novalidate>
+    <table style="width:40%">
+      <tr>
+      <td>
+      <label for="ExamId">ExamID</label>
+      </td>
+      <td>
+      <input type="text" id = "examId" name = "examId"  ng-model="examId" required />
+	  </td>
+	  </tr>
+      <tr>
+      <td>
+       <button type="submit">Delete</button>
+       </td>
+       </tr>
+    </table>
+    </form>
+  </div>
+</body>
+</html>
